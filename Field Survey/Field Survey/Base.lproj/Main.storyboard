@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,14 +39,48 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FieldSurveyCell" id="RtA-El-4k2">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FieldSurveyCell" rowHeight="60" id="RtA-El-4k2" customClass="FieldSurveyTableViewCell" customModule="Field_Survey" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RtA-El-4k2" id="Vvy-p2-f6V">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RtA-El-4k2" id="Vvy-p2-f6V" customClass="FieldSurveyTableViewCell" customModule="Field_Survey" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPR-2J-iMe">
+                                                    <rect key="frame" x="73" y="4" width="269" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4e-LX-Ty7">
+                                                    <rect key="frame" x="73" y="33" width="269" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kbK-tQ-A2c">
+                                                    <rect key="frame" x="15" y="4" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="Fhh-CP-oUE"/>
+                                                        <constraint firstAttribute="width" constant="50" id="Lnn-I7-Jrp"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kbK-tQ-A2c" firstAttribute="leading" secondItem="Vvy-p2-f6V" secondAttribute="leadingMargin" id="1y0-dB-sXk"/>
+                                                <constraint firstAttribute="trailing" secondItem="A4e-LX-Ty7" secondAttribute="trailing" id="HsT-cm-dET"/>
+                                                <constraint firstItem="A4e-LX-Ty7" firstAttribute="leading" secondItem="kbK-tQ-A2c" secondAttribute="trailing" constant="8" id="Nto-c0-ELZ"/>
+                                                <constraint firstItem="QPR-2J-iMe" firstAttribute="top" secondItem="kbK-tQ-A2c" secondAttribute="top" id="RJq-PA-Fak"/>
+                                                <constraint firstAttribute="trailing" secondItem="QPR-2J-iMe" secondAttribute="trailing" id="ab7-3B-ox5"/>
+                                                <constraint firstItem="A4e-LX-Ty7" firstAttribute="bottom" secondItem="kbK-tQ-A2c" secondAttribute="bottom" id="agy-Eh-hca"/>
+                                                <constraint firstItem="kbK-tQ-A2c" firstAttribute="centerY" secondItem="Vvy-p2-f6V" secondAttribute="centerY" id="ten-kc-yac"/>
+                                                <constraint firstItem="QPR-2J-iMe" firstAttribute="leading" secondItem="kbK-tQ-A2c" secondAttribute="trailing" constant="8" id="ufM-1u-ipQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="ClassificationLabel" destination="QPR-2J-iMe" id="UaY-hX-Nne"/>
+                                            <outlet property="DateLabel" destination="A4e-LX-Ty7" id="a8L-16-U6r"/>
+                                            <outlet property="FieldSurveyImageView" destination="kbK-tQ-A2c" id="swh-uG-P1O"/>
                                             <segue destination="Vhg-qK-zk6" kind="show" id="jJ9-hQ-IzG"/>
                                         </connections>
                                     </tableViewCell>
@@ -66,10 +101,13 @@
                         <viewLayoutGuide key="safeArea" id="Vcw-GW-BxU"/>
                     </view>
                     <navigationItem key="navigationItem" id="8dk-zT-GPF"/>
+                    <connections>
+                        <outlet property="fieldSurveyTableView" destination="8MC-vg-r0z" id="vY8-Ij-Cot"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSw-4j-SBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6" y="66"/>
+            <point key="canvasLocation" x="-7.2000000000000002" y="65.217391304347828"/>
         </scene>
         <!--Field Survey Description View Controller-->
         <scene sceneID="vdk-VT-gYP">
@@ -101,6 +139,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujY-2d-C0B">
+                                <rect key="frame" x="16" y="250" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -118,6 +163,7 @@
                     <connections>
                         <outlet property="classificationLabel" destination="fig-wN-1S4" id="ytj-wb-fmQ"/>
                         <outlet property="dateLabel" destination="VDE-6R-9Nz" id="7xg-Dy-Ucz"/>
+                        <outlet property="descriptionLabel" destination="ujY-2d-C0B" id="JVF-IG-pz5"/>
                         <outlet property="fieldSurveyImageView" destination="lCQ-ZE-W81" id="cDc-AV-VoC"/>
                     </connections>
                 </viewController>

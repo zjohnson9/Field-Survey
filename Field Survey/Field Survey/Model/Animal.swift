@@ -1,5 +1,5 @@
 //
-//  FieldSurvey.swift
+//  Animal.swift
 //  Field Survey
 //
 //  Created by Zac Johnson on 11/14/18.
@@ -9,7 +9,7 @@
 import Foundation
 
 struct FieldSurvey {
-    let animal = Animal(rawValue: String)
+    let animal = Animal
     let title: String
     let description: String
     let date: Date
@@ -21,7 +21,7 @@ struct FieldSurvey {
         self.date = date
     }
     
-    init?(animalName: String, title: String, description: String, date: Date) {
+    init?(animalName: Animal, title: String, description: String, date: Date) {
         if let animal = Animal(rawValue: animalName) {
             self.init(animal: animal, title: title, description: description, date: date)
         }

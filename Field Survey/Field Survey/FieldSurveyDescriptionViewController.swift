@@ -9,22 +9,29 @@
 import UIKit
 
 class FieldSurveyDescriptionViewController: UIViewController {
+    
+    var fieldSurvey: FieldSurvey?
+    
+    var dateFormatter = DateFormatter()
 
     @IBOutlet weak var fieldSurveyImageView: UIImageView!
     @IBOutlet weak var classificationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
+    @IBOutlet weak var descriptionLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        
         fieldSurveyImageView.image = fieldSurvey?.animal.image
         
-        fieldSurveyClassification.text = fieldSurvey?.title
+        classificationLabel.text = fieldSurvey?.title
         
-        fieldDescription.text = fieldSurvey?.description
+        descriptionLabel.text = fieldSurvey?.description
         
         if let date = fieldSurvey?.date{
-            dateLabel.text = DateFormatter.string(from: date)
+            dateLabel.text = dateFormatter.string(from: date)
         }
         else {
             dateLabel.text = ""

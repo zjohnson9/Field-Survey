@@ -17,7 +17,7 @@ class FieldSurveyJSONLoader {
             
             
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)){
-            events = FieldSurveyJSONParser.parse(data)
+            events = FieldSurveyJSONParser().parse(data)
         }
         
         return events
