@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Classification: String {
+enum Animal: String {
     case amphibian
     case bird
     case fish
